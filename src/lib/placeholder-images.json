@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg-1",
+      "description": "Abstract Indigo Background",
+      "imageUrl": "https://images.unsplash.com/photo-1640363877657-537b9f77af76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMGluZGlnb3xlbnwwfHx8fDE3NzIyNTUwMzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract indigo"
+    },
+    {
+      "id": "hero-bg-2",
+      "description": "Tech Workspace",
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWNoJTIwb2ZmaWNlfGVufDB8fHx8MTc3MjI3MTc0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech office"
+    },
+    {
+      "id": "hero-bg-3",
+      "description": "Creative Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1741466071728-cc5691bfb535?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBkZXNrfGVufDB8fHx8MTc3MjI5Nzg1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "creative desk"
+    },
+    {
+      "id": "profile-pic",
+      "description": "Professional Profile Photo",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwcm9maWxlfGVufDB8fHx8MTc3MjI5Nzg1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional profile"
+    },
+    {
+      "id": "project-1",
+      "description": "Web Development Project",
+      "imageUrl": "https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWIlMjBkZXNpZ258ZW58MHx8fHwxNzcyMjMxNTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web design"
+    },
+    {
+      "id": "project-2",
+      "description": "Mobile App UI",
+      "imageUrl": "https://images.unsplash.com/photo-1541462608143-67571c6738dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JpbGUlMjB1aXxlbnwwfHx8fDE3NzIyOTc4NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile ui"
+    },
+    {
+      "id": "project-3",
+      "description": "Branding Identity",
+      "imageUrl": "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnJhbmRpbmd8ZW58MHx8fHwxNzcyMjk3ODU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "branding"
+    }
+  ]
 }
