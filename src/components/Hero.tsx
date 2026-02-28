@@ -44,19 +44,23 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
         )}
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-5xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center">
-        <h1 className="text-3xl @xs:text-4xl @md:text-6xl @lg:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-[1.1] tracking-tight">
-          {title || "Selamat Datang di Portfolio Saya"}
-        </h1>
-        <p className="text-base @xs:text-lg @md:text-xl @lg:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide">
+      <div className="relative z-10 text-center px-6 w-full max-w-7xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center overflow-hidden">
+        {/* Container untuk Judul Berjalan */}
+        <div className="w-full overflow-hidden mb-6">
+          <h1 className="text-3xl @xs:text-4xl @md:text-6xl @lg:text-8xl font-bold text-white drop-shadow-2xl leading-[1.1] tracking-tight animate-marquee">
+            {title || "Selamat Datang di Portfolio Saya"}
+          </h1>
+        </div>
+
+        <p className="text-base @xs:text-lg @md:text-xl @lg:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide max-w-2xl">
           {subtitle || "Web Developer & UI/UX Designer"}
         </p>
         
-        <div className="flex flex-col @sm:flex-row gap-6 justify-center w-full @sm:w-auto">
+        <div className="flex flex-col @3xl:flex-row gap-6 justify-center w-full @3xl:w-auto px-4">
           <Button 
             asChild 
             size="lg" 
-            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none order-1"
+            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none @max-3xl:order-1"
           >
             <a href="#contact">Hubungi Saya</a>
           </Button>
@@ -64,7 +68,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
             asChild 
             size="lg" 
             variant="ghost" 
-            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 order-2"
+            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 @max-3xl:order-2"
           >
             <a href="#about">Lihat Profile</a>
           </Button>
