@@ -21,7 +21,7 @@ export function Gallery({ items = [] }: GalleryProps) {
         {items.length === 0 ? (
           <p className="text-center text-muted-foreground">Belum ada project yang ditampilkan.</p>
         ) : (
-          <div className="grid grid-cols-2 @3xl:grid-cols-3 @5xl:grid-cols-4 gap-4 @md:gap-8">
+          <div className="grid grid-cols-1 @3xl:grid-cols-2 @5xl:grid-cols-3 @7xl:grid-cols-4 gap-6 @md:gap-8">
             {items.map((item, index) => (
               <Card key={index} className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300 rounded-xl flex flex-col">
                 <div className="relative aspect-video overflow-hidden">
@@ -33,18 +33,18 @@ export function Gallery({ items = [] }: GalleryProps) {
                   />
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <CardContent className="p-3 @md:p-6 flex-grow flex flex-col justify-between">
+                <CardContent className="p-6 flex-grow flex flex-col justify-between">
                   <div>
-                    <h4 className="text-sm @md:text-xl font-bold text-primary mb-2 @md:mb-4 group-hover:text-accent transition-colors line-clamp-2">
+                    <h4 className="text-xl font-bold text-primary mb-4 group-hover:text-accent transition-colors line-clamp-2">
                       {item.title}
                     </h4>
                     
-                    <div className="space-y-3 @md:space-y-4">
-                      <div className="hidden @md:block">
-                        <span className="text-[10px] @md:text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1 @md:mb-2">Teknologi</span>
-                        <div className="flex flex-wrap gap-1 @md:gap-2">
+                    <div className="space-y-4">
+                      <div>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Teknologi</span>
+                        <div className="flex flex-wrap gap-2">
                           {item.learned?.map((tech, i) => (
-                            <Badge key={i} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none rounded-md text-[9px] @md:text-xs px-1 @md:px-2 py-0">
+                            <Badge key={i} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none rounded-md text-xs px-2 py-0">
                               {tech}
                             </Badge>
                           ))}
@@ -52,8 +52,8 @@ export function Gallery({ items = [] }: GalleryProps) {
                       </div>
 
                       <div className="hidden @lg:block">
-                        <span className="text-[10px] @md:text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1 @md:mb-2">Hasil Utama</span>
-                        <ul className="text-[10px] @md:text-sm text-muted-foreground list-disc pl-3 @md:pl-4 space-y-0.5">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Hasil Utama</span>
+                        <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
                           {item.results?.slice(0, 2).map((res, i) => (
                             <li key={i} className="line-clamp-1">{res}</li>
                           ))}
