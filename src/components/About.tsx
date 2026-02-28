@@ -52,8 +52,8 @@ export function About({ data }: AboutProps) {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center">About Me</h2>
         
-        <div className="grid @md:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl shadow-xl group">
+        <div className="grid grid-cols-1 @3xl:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-square max-w-md mx-auto @3xl:mx-0 overflow-hidden rounded-2xl shadow-xl group">
             <img 
               src={data.imageUrl} 
               alt="Profile" 
