@@ -45,10 +45,10 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center">
-        <h1 className="text-4xl @xs:text-5xl @md:text-7xl @lg:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-[1.1] tracking-tight">
+        <h1 className="text-3xl @xs:text-4xl @md:text-6xl @lg:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-[1.1] tracking-tight">
           {title || "Selamat Datang di Portfolio Saya"}
         </h1>
-        <p className="text-lg @md:text-xl @lg:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide">
+        <p className="text-base @xs:text-lg @md:text-xl @lg:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide">
           {subtitle || "Web Developer & UI/UX Designer"}
         </p>
         
@@ -56,7 +56,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
           <Button 
             asChild 
             size="lg" 
-            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none"
+            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none order-1"
           >
             <a href="#contact">Hubungi Saya</a>
           </Button>
@@ -64,7 +64,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
             asChild 
             size="lg" 
             variant="ghost" 
-            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95"
+            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 order-2"
           >
             <a href="#about">Lihat Profile</a>
           </Button>
