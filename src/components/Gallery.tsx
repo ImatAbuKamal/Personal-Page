@@ -15,14 +15,14 @@ interface GalleryProps {
 
 export function Gallery({ items = [] }: GalleryProps) {
   return (
-    <section id="gallery" className="py-24 px-6 md:px-12">
+    <section id="gallery" className="@container py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">My Projects</h2>
+        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center">My Projects</h2>
         
         {items.length === 0 ? (
           <p className="text-center text-muted-foreground">Belum ada project yang ditampilkan.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 @sm:grid-cols-2 @lg:grid-cols-3 gap-8">
             {items.map((item, index) => (
               <Card key={index} className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300 rounded-xl">
                 <div className="relative aspect-video overflow-hidden">

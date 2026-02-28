@@ -24,7 +24,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
   }, [slides.length]);
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="@container relative h-screen flex items-center justify-center overflow-hidden">
       {/* Carousel */}
       <div className="absolute inset-0 z-0">
         {slides.length > 0 ? (
@@ -51,13 +51,13 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl animate-in fade-in slide-in-from-bottom-10 duration-1000">
-        <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+        <h1 className="text-4xl @md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
           {title || "Welcome to My Portfolio"}
         </h1>
-        <p className="text-lg md:text-2xl text-white/90 mb-10 drop-shadow-md">
+        <p className="text-lg @md:text-2xl text-white/90 mb-10 drop-shadow-md">
           {subtitle || "Passionate Developer & Creator"}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col @sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="bg-accent text-white hover:bg-accent/90 px-10 text-lg rounded-full">
             <a href="#contact">Hubungi Saya</a>
           </Button>

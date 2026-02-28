@@ -16,12 +16,12 @@ export function Contact({ data }: ContactProps) {
   if (!data) return null;
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-white">
+    <section id="contact" className="@container py-24 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">Contact Me</h2>
+        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center">Contact Me</h2>
         
-        <div className="grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid @lg:grid-cols-5 gap-12">
+          <div className="@lg:col-span-2 space-y-8">
             <h3 className="text-2xl font-bold text-primary mb-4">Informasi Kontak</h3>
             
             <div className="space-y-6">
@@ -57,7 +57,7 @@ export function Contact({ data }: ContactProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-lg border border-border min-h-[400px]">
+          <div className="@lg:col-span-3 rounded-2xl overflow-hidden shadow-lg border border-border min-h-[400px]">
             {data.mapUrl ? (
               <iframe
                 src={data.mapUrl}

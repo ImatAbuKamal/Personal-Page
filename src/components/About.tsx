@@ -48,11 +48,11 @@ export function About({ data }: AboutProps) {
   const skills = data.skills ? data.skills.split(";").map((s) => s.trim()) : [];
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-white">
+    <section id="about" className="@container py-24 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">About Me</h2>
+        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center">About Me</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid @md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl shadow-xl group">
             <img 
               src={data.imageUrl} 
