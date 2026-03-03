@@ -14,16 +14,20 @@ interface GalleryProps {
 
 export function Gallery({ items = [] }: GalleryProps) {
   return (
-    <section id="gallery" className="@container py-24 px-4 md:px-12">
+    <section id="gallery" className="@container py-24 px-4 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center">My Projects</h2>
+        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center animate-in fade-in slide-in-from-bottom-5 duration-700">My Projects</h2>
         
         {items.length === 0 ? (
-          <p className="text-center text-muted-foreground">Belum ada project yang ditampilkan.</p>
+          <p className="text-center text-muted-foreground animate-in fade-in duration-1000">Belum ada project yang ditampilkan.</p>
         ) : (
           <div className="grid grid-cols-1 @3xl:grid-cols-2 @5xl:grid-cols-3 @7xl:grid-cols-4 gap-6 @md:gap-8">
             {items.map((item, index) => (
-              <Card key={index} className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300 rounded-xl flex flex-col">
+              <Card 
+                key={index} 
+                className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300 rounded-xl flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <div className="relative aspect-video overflow-hidden">
                   <img 
                     src={item.imageUrl} 
