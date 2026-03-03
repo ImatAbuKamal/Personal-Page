@@ -1,0 +1,410 @@
+{
+  "entities": {
+    "HomeContent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "HomeContent",
+      "type": "object",
+      "description": "Represents the dynamic content for the homepage hero section, including title and subtitle.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the HomeContent entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The main title displayed on the homepage hero section."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "The subtitle or descriptive text displayed on the homepage hero section."
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ]
+    },
+    "CarouselSlide": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CarouselSlide",
+      "type": "object",
+      "description": "Represents an individual slide within the homepage carousel, including its image and an optional caption.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the CarouselSlide entity."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The URL of the image to be displayed in the carousel slide.",
+          "format": "uri"
+        },
+        "caption": {
+          "type": "string",
+          "description": "An optional caption or descriptive text for the carousel slide image."
+        }
+      },
+      "required": [
+        "id",
+        "imageUrl"
+      ]
+    },
+    "AboutMe": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AboutMe",
+      "type": "object",
+      "description": "Represents the 'About Me' section's content, detailing the portfolio owner's profile, description, image, and skills.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the AboutMe entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The main title for the About Me section, often the user's name or professional title."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description or biography for the About Me section, introducing the portfolio owner."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The URL of the profile image displayed in the About Me section.",
+          "format": "uri"
+        },
+        "skills": {
+          "type": "array",
+          "description": "An array of strings, each representing a skill or technology possessed by the portfolio owner.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description"
+      ]
+    },
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents an individual project or work displayed in the portfolio's gallery section.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Project entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title or name of the project."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The URL of the main image representing the project in the gallery.",
+          "format": "uri"
+        },
+        "learned": {
+          "type": "array",
+          "description": "An array of strings, each describing a technology, tool, or concept learned/used in the project.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "type": "array",
+          "description": "An array of strings, each highlighting a key outcome or result achieved by the project.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "imageUrl"
+      ]
+    },
+    "ContactInfo": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactInfo",
+      "type": "object",
+      "description": "Represents the contact details and embedded map information for the portfolio owner.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ContactInfo entity."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The primary contact phone number for the portfolio owner."
+        },
+        "email": {
+          "type": "string",
+          "description": "The primary contact email address for the portfolio owner.",
+          "format": "email"
+        },
+        "address": {
+          "type": "string",
+          "description": "The physical address or general location of the portfolio owner."
+        },
+        "mapUrl": {
+          "type": "string",
+          "description": "The URL for an embedded map (e.g., Google Maps iframe source) pointing to the owner's location.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "phone",
+        "email"
+      ]
+    },
+    "FooterContent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FooterContent",
+      "type": "object",
+      "description": "Represents the content displayed in the website's footer, including social media links and copyright information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FooterContent entity."
+        },
+        "facebookUrl": {
+          "type": "string",
+          "description": "The URL for the portfolio owner's Facebook profile.",
+          "format": "uri"
+        },
+        "twitterUrl": {
+          "type": "string",
+          "description": "The URL for the portfolio owner's Twitter profile.",
+          "format": "uri"
+        },
+        "instagramUrl": {
+          "type": "string",
+          "description": "The URL for the portfolio owner's Instagram profile.",
+          "format": "uri"
+        },
+        "linkedinUrl": {
+          "type": "string",
+          "description": "The URL for the portfolio owner's LinkedIn profile.",
+          "format": "uri"
+        },
+        "githubUrl": {
+          "type": "string",
+          "description": "The URL for the portfolio owner's GitHub profile.",
+          "format": "uri"
+        },
+        "copyrightText": {
+          "type": "string",
+          "description": "The copyright text displayed in the website footer."
+        }
+      },
+      "required": [
+        "id",
+        "copyrightText"
+      ]
+    },
+    "Message": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Message",
+      "type": "object",
+      "description": "Represents a message submitted by a visitor through the contact form, including their details and an optional photo attachment.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Message entity."
+        },
+        "senderName": {
+          "type": "string",
+          "description": "The full name of the person who sent the message."
+        },
+        "senderEmail": {
+          "type": "string",
+          "description": "The email address of the sender.",
+          "format": "email"
+        },
+        "senderPhone": {
+          "type": "string",
+          "description": "The phone number of the sender."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject line of the message."
+        },
+        "messageText": {
+          "type": "string",
+          "description": "The main content or body of the message."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "The URL where the uploaded photo attachment is stored after successful submission.",
+          "format": "uri"
+        },
+        "photoName": {
+          "type": "string",
+          "description": "The original file name of the uploaded photo attachment."
+        },
+        "photoType": {
+          "type": "string",
+          "description": "The MIME type of the uploaded photo (e.g., 'image/jpeg', 'image/png')."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the message was submitted.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "senderName",
+        "senderEmail",
+        "senderPhone",
+        "subject",
+        "messageText",
+        "photoUrl",
+        "submissionDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/homeContent/{contentId}",
+        "definition": {
+          "entityName": "HomeContent",
+          "schema": {
+            "$ref": "#/backend/entities/HomeContent"
+          },
+          "description": "Represents the dynamic content for the homepage hero section. Typically, a single document like '/homeContent/main' will hold this data, accessible publicly. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "contentId",
+              "description": "The unique identifier for the HomeContent document, typically 'main' for a singleton."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/carouselSlides/{slideId}",
+        "definition": {
+          "entityName": "CarouselSlide",
+          "schema": {
+            "$ref": "#/backend/entities/CarouselSlide"
+          },
+          "description": "Stores individual slides for the homepage carousel. This collection is publicly readable. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "slideId",
+              "description": "The unique identifier for a carousel slide."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/aboutMe/{contentId}",
+        "definition": {
+          "entityName": "AboutMe",
+          "schema": {
+            "$ref": "#/backend/entities/AboutMe"
+          },
+          "description": "Contains the 'About Me' section's content. Typically, a single document like '/aboutMe/main' will hold this data, accessible publicly. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "contentId",
+              "description": "The unique identifier for the AboutMe document, typically 'main' for a singleton."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Houses individual projects displayed in the portfolio's gallery. This collection is publicly readable. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "projectId",
+              "description": "The unique identifier for a project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/contactInfo/{contentId}",
+        "definition": {
+          "entityName": "ContactInfo",
+          "schema": {
+            "$ref": "#/backend/entities/ContactInfo"
+          },
+          "description": "Stores the contact details and map information. Typically, a single document like '/contactInfo/main' will hold this data, accessible publicly. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "contentId",
+              "description": "The unique identifier for the ContactInfo document, typically 'main' for a singleton."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/footerContent/{contentId}",
+        "definition": {
+          "entityName": "FooterContent",
+          "schema": {
+            "$ref": "#/backend/entities/FooterContent"
+          },
+          "description": "Contains content for the website's footer, including social media links and copyright info. Typically, a single document like '/footerContent/main' will hold this data, accessible publicly. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "contentId",
+              "description": "The unique identifier for the FooterContent document, typically 'main' for a singleton."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/messages/{messageId}",
+        "definition": {
+          "entityName": "Message",
+          "schema": {
+            "$ref": "#/backend/entities/Message"
+          },
+          "description": "Stores messages submitted by visitors through the contact form. Documents can be created by any user (public write) but are only readable and deletable by authenticated administrators. Document ID should match the 'id' field in the schema.",
+          "params": [
+            {
+              "name": "messageId",
+              "description": "The unique identifier for a submitted message."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/roles_admin/{adminId}",
+        "definition": {
+          "entityName": "roles_admin",
+          "schema": {
+            "$ref": "#/backend/entities/user"
+          },
+          "description": "Identifies authenticated administrators of the portfolio. The existence of a document at this path where `{adminId}` matches `request.auth.uid` grants administrative privileges. This collection enables Database-Based Access Control (DBAC).",
+          "params": [
+            {
+              "name": "adminId",
+              "description": "The Firebase Authentication UID of an administrator."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure for PersonaPage is meticulously designed to ensure security, scalability, and ease of debugging, adhering to all core design principles.\n\n1.  **Structural Segregation (Homogeneous Security Posture):**\n    *   All dynamic content intended for public display—HomeContent, CarouselSlide, AboutMe, Project, ContactInfo, and FooterContent—is organized into top-level collections: `/homeContent`, `/carouselSlides`, `/aboutMe`, `/projects`, `/contactInfo`, and `/footerContent`. Each document within these collections shares a homogeneous security posture, allowing public read access (`allow read: if true;`) and restricted write access only to an authenticated administrator.\n    *   User-submitted messages are housed in a distinct top-level collection: `/messages`. This separation is crucial as `Message` documents have a different security profile, allowing unauthenticated public creation (`allow create: if true;`) but restricting read and delete operations to authenticated administrators (`allow read, delete: if request.auth != null && isAdmin();`). This clear segregation prevents mixing access patterns and simplifies rule evaluation.\n    *   Administrator roles are explicitly defined and stored in the dedicated `/roles_admin` collection, serving solely to identify authenticated portfolio owners for privileged operations.\n\n2.  **Authorization Independence via Denormalization & DBAC:**\n    *   For all publicly readable content, Authorization Independence is inherently achieved as access does not depend on any specific data attributes or hierarchical relationships, thus eliminating the need for denormalization for authorization purposes.\n    *   For the `/messages` collection, which is publicly writable but admin-readable, authorization independence for admin access is maintained by implementing DBAC (Database-Based Access Control) using the `roles_admin` collection. The security rule for reading/deleting messages will utilize an `isAdmin()` function that performs a direct `get()` operation on `/roles_admin/$(request.auth.uid)`. This means the authorization decision for a `Message` document does not depend on any parent document's attributes or any other hierarchically related data. The check is against a global role record, which is atomic and independent, fulfilling the Authorization Independence mandate by avoiding hierarchical authorization dependencies within the data itself.\n\n3.  **Support for QAPs (Queries Are Not Filters):**\n    *   For all publicly accessible content collections (e.g., `/projects`), the rule `allow read: if true;` inherently supports `list` operations (QAPs). Any client can perform collection-level queries without requiring complex filtering in the security rules, as all documents are publicly available.\n    *   For the `/messages` collection, the rule `allow read: if request.auth != null && isAdmin();` ensures that `list` operations are only permissible for authenticated administrators. This rule is a QAP because the authorization decision is made solely based on the authenticated user's ID and its presence in the `roles_admin` collection, evaluable at the collection level without needing to inspect individual message documents. This design ensures efficient and secure retrieval of message lists by authorized personnel.\n\n4.  **Data Clarity and Predictability:**\n    *   Singleton entities (HomeContent, AboutMe, ContactInfo, FooterContent) are stored with a predictable document ID (e.g., `main`) for direct, unambiguous access (`/homeContent/main`).\n    *   `CarouselSlide` and `Project` entities are stored in their respective collections with dynamically generated document IDs (`/carouselSlides/{slideId}`, `/projects/{projectId}`), allowing for flexible management of multiple items.\n    *   The `id` field in each entity schema is consistently used as the Firestore document ID, promoting data integrity and simplifying rule matching.\n\nThis robust structure provides a clear, maintainable, and secure foundation for PersonaPage, facilitating future feature development while strictly adhering to best practices for Firestore security and performance."
+  }
+}
