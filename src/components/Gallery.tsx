@@ -14,14 +14,14 @@ interface GalleryProps {
 
 export function Gallery({ items = [] }: GalleryProps) {
   return (
-    <section id="gallery" className="@container py-24 px-4 md:px-12 bg-background">
+    <section id="gallery" className="py-24 px-4 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl @md:text-4xl font-bold text-primary mb-12 text-center animate-in fade-in slide-in-from-bottom-5 duration-700">My Projects</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center animate-in fade-in slide-in-from-bottom-5 duration-700">My Projects</h2>
         
         {items.length === 0 ? (
           <p className="text-center text-muted-foreground animate-in fade-in duration-1000">Belum ada project yang ditampilkan.</p>
         ) : (
-          <div className="grid grid-cols-1 @3xl:grid-cols-2 @5xl:grid-cols-3 @7xl:grid-cols-4 gap-6 @md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {items.map((item, index) => (
               <Card 
                 key={index} 
@@ -55,7 +55,7 @@ export function Gallery({ items = [] }: GalleryProps) {
                         </div>
                       </div>
 
-                      <div className="hidden @lg:block">
+                      <div className="hidden lg:block">
                         <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Hasil Utama</span>
                         <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
                           {item.results?.slice(0, 2).map((res, i) => (
