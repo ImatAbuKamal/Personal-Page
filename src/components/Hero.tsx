@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -45,24 +44,24 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
         )}
       </div>
 
-      <div className="relative z-10 text-center px-6 w-full max-w-7xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center overflow-hidden">
-        {/* Judul Berjalan (Marquee) - Ukuran Responsif Terkontrol */}
-        <div className="w-full overflow-hidden mb-6">
-          <h1 className="text-3xl @xs:text-4xl @md:text-6xl @lg:text-8xl font-bold text-white drop-shadow-2xl leading-[1.1] tracking-tight animate-marquee">
+      <div className="relative z-10 text-center px-4 w-full max-w-7xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center">
+        {/* Marquee Title with strictly controlled responsive font sizes */}
+        <div className="w-full overflow-hidden mb-8">
+          <h1 className="text-2xl @xs:text-3xl @md:text-4xl @3xl:text-6xl @5xl:text-7xl @7xl:text-8xl font-bold text-white drop-shadow-2xl leading-[1.1] tracking-tight animate-marquee px-4">
             {title || "Selamat Datang di Portfolio Saya"}
           </h1>
         </div>
 
-        <p className="text-base @xs:text-lg @md:text-xl @lg:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide max-w-2xl">
+        <p className="text-sm @xs:text-base @md:text-lg @3xl:text-xl @5xl:text-2xl text-white/90 mb-12 drop-shadow-lg font-medium tracking-wide max-w-2xl px-6">
           {subtitle || "Web Developer & UI/UX Designer"}
         </p>
         
-        {/* Grid Tombol - Hubungi Saya di ATAS pada Mobile */}
-        <div className="flex flex-col @3xl:flex-row gap-6 justify-center w-full @3xl:w-auto px-4">
+        {/* Mobile-first button stack: Contact above Profile on mobile */}
+        <div className="flex flex-col @3xl:flex-row gap-4 @3xl:gap-6 justify-center w-full @3xl:w-auto px-6">
           <Button 
             asChild 
             size="lg" 
-            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none order-1 @3xl:order-none"
+            className="bg-secondary text-white hover:bg-secondary/90 h-14 @3xl:h-16 text-lg @3xl:text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none order-1 @3xl:order-none"
           >
             <a href="#contact">Hubungi Saya</a>
           </Button>
@@ -70,7 +69,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
             asChild 
             size="lg" 
             variant="ghost" 
-            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 order-2 @3xl:order-none"
+            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 h-14 @3xl:h-16 text-lg @3xl:text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 order-2 @3xl:order-none"
           >
             <a href="#about">Lihat Profile</a>
           </Button>
@@ -78,20 +77,20 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
 
         {/* Caption at the bottom */}
         {slides.length > 0 && slides[currentSlide].caption && (
-          <div className="absolute -bottom-32 @md:-bottom-48 left-1/2 -translate-x-1/2">
-             <div className="bg-black/40 backdrop-blur-md px-8 py-2 rounded-full text-white/90 text-sm md:text-base border border-white/10 whitespace-nowrap shadow-sm">
+          <div className="absolute -bottom-24 @3xl:-bottom-32 left-1/2 -translate-x-1/2">
+             <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full text-white/90 text-xs @3xl:text-sm border border-white/10 whitespace-nowrap shadow-sm">
               {slides[currentSlide].caption}
             </div>
           </div>
         )}
       </div>
 
-      {/* Floating Logo */}
-      <div className="absolute bottom-10 left-10 z-20 flex flex-col gap-2">
-        <div className="w-14 h-14 rounded-full bg-black/80 border border-white/20 flex items-center justify-center text-white font-bold text-2xl shadow-2xl backdrop-blur-sm">
+      {/* Floating Logo UI */}
+      <div className="absolute bottom-6 left-6 @3xl:bottom-10 @3xl:left-10 z-20 flex flex-col gap-2">
+        <div className="w-10 h-10 @3xl:w-14 @3xl:h-14 rounded-full bg-black/80 border border-white/20 flex items-center justify-center text-white font-bold text-xl @3xl:text-2xl shadow-2xl backdrop-blur-sm">
           N
         </div>
-        <div className="w-8 h-8 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white font-bold text-xs shadow-xl backdrop-blur-sm ml-[-10px] mt-[-10px]">
+        <div className="w-6 h-6 @3xl:w-8 @3xl:h-8 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white font-bold text-[10px] @3xl:text-xs shadow-xl backdrop-blur-sm ml-[-8px] mt-[-8px]">
           N
         </div>
       </div>

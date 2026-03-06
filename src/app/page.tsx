@@ -1,8 +1,8 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchPortfolioData, PortfolioData } from "@/lib/portfolio-service";
+import { fetchPortfolioData } from "@/lib/portfolio-service";
+import type { PortfolioData } from "@/lib/portfolio-types";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";

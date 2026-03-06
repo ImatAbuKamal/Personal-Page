@@ -1,60 +1,67 @@
+'use server';
 
-import { enhancePortfolioContent, EnhancePortfolioContentInput } from '@/ai/flows/enhance-portfolio-content';
+/**
+ * @fileOverview This file provides server-side actions for fetching and submitting portfolio data.
+ * These functions run on the server to bypass CORS restrictions.
+ */
 
-export const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGtc7RfmzgiESA2SAzx0lMBQneu82fQ_B0f2FlGDlv5B4oAgr2pNPbmDNYI8z74D8MtQ/exec";
+import { enhancePortfolioContent } from '@/ai/flows/enhance-portfolio-content';
+import { APP_SCRIPT_URL } from './constants';
+import type { PortfolioData } from './portfolio-types';
 
-export interface PortfolioData {
-  about?: {
-    title: string;
-    description: string;
-    imageUrl: string;
-    skills: string;
-  };
-  home?: {
-    title: string;
-    subtitle: string;
-  };
-  carousel?: Array<{
-    imageUrl: string;
-    caption: string;
-  }>;
-  contact?: {
-    phone: string;
-    email: string;
-    address: string;
-    mapUrl: string;
-  };
-  footer?: {
-    copyright: string;
-    facebook: string;
-    twitter: string;
-    instagram: string;
-    linkedin: string;
-    github: string;
-  };
-  gallery?: Array<{
-    title: string;
-    imageUrl: string;
-    learned: string[];
-    results: string[];
-  }>;
-}
-
+/**
+ * Fetches the complete portfolio data from the Google Apps Script API.
+ * Performed as a Server Action to bypass client-side CORS.
+ */
 export async function fetchPortfolioData(): Promise<PortfolioData> {
-  const response = await fetch(APP_SCRIPT_URL);
-  if (!response.ok) throw new Error("Gagal mengambil data portfolio");
-  return response.json();
+  try {
+    const response = await fetch(APP_SCRIPT_URL, {
+      cache: 'no-store',
+    });
+    if (!response.ok) {
+      throw new Error(`Gagal mengambil data portfolio: ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching portfolio data on server:", error);
+    throw error;
+  }
 }
 
+/**
+ * Uses GenAI to enhance or suggest improvements for portfolio content.
+ */
 export async function getAIEnhancedContent(contentType: 'projectDescription' | 'aboutMe', content: string) {
   return await enhancePortfolioContent({ contentType, content });
 }
 
-export async function submitMessage(payload: URLSearchParams) {
-  const response = await fetch(APP_SCRIPT_URL, {
-    method: "POST",
-    body: payload,
-  });
-  if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-  return response.json();
+/**
+ * Submits a contact message to the Google Apps Script backend.
+ */
+export async function submitMessageAction(formData: { 
+  name: string; 
+  email: string; 
+  phone: string; 
+  subject: string; 
+  message: string; 
+  photo: string; 
+  photoName: string; 
+  photoType: string;
+}) {
+  try {
+    const payload = new URLSearchParams();
+    Object.entries(formData).forEach(([key, value]) => {
+      payload.append(key, value);
+    });
+
+    const response = await fetch(APP_SCRIPT_URL, {
+      method: "POST",
+      body: payload,
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.error("Error submitting message on server:", error);
+    throw error;
+  }
 }

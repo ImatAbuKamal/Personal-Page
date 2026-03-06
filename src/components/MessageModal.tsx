@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -24,7 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { submitMessage } from "@/lib/portfolio-service";
+import { submitMessageAction } from "@/lib/portfolio-service";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nama wajib diisi"),
@@ -78,19 +77,18 @@ export function MessageModal({ isOpen, onOpenChange }: MessageModalProps) {
 
     setIsSubmitting(true);
     try {
-      const payload = new URLSearchParams();
-      payload.append("name", values.name);
-      payload.append("email", values.email);
-      payload.append("phone", values.phone);
-      payload.append("subject", values.subject);
-      payload.append("message", values.message);
-
       const base64 = await fileToBase64(photoFile);
-      payload.append("photo", base64);
-      payload.append("photoName", photoFile.name);
-      payload.append("photoType", photoFile.type);
-
-      const result = await submitMessage(payload);
+      
+      const result = await submitMessageAction({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        subject: values.subject,
+        message: values.message,
+        photo: base64,
+        photoName: photoFile.name,
+        photoType: photoFile.type
+      });
 
       if (result.success) {
         Swal.fire({
