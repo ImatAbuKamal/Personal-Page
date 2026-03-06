@@ -67,7 +67,10 @@ export default function Home() {
         <Contact data={data?.contact} />
       </main>
 
-      <Footer data={data?.footer} />
+      <Footer 
+        data={data?.footer} 
+        ownerName={data?.about?.title} 
+      />
 
       <MessageModal 
         isOpen={isMessageModalOpen} 
