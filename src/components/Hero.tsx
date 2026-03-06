@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -45,7 +46,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
       </div>
 
       <div className="relative z-10 text-center px-6 w-full max-w-7xl animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-col items-center overflow-hidden">
-        {/* Container untuk Judul Berjalan */}
+        {/* Judul Berjalan (Marquee) - Ukuran Responsif Terkontrol */}
         <div className="w-full overflow-hidden mb-6">
           <h1 className="text-3xl @xs:text-4xl @md:text-6xl @lg:text-8xl font-bold text-white drop-shadow-2xl leading-[1.1] tracking-tight animate-marquee">
             {title || "Selamat Datang di Portfolio Saya"}
@@ -56,11 +57,12 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
           {subtitle || "Web Developer & UI/UX Designer"}
         </p>
         
+        {/* Grid Tombol - Hubungi Saya di ATAS pada Mobile */}
         <div className="flex flex-col @3xl:flex-row gap-6 justify-center w-full @3xl:w-auto px-4">
           <Button 
             asChild 
             size="lg" 
-            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none @max-3xl:order-1"
+            className="bg-secondary text-white hover:bg-secondary/90 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 border-none order-1 @3xl:order-none"
           >
             <a href="#contact">Hubungi Saya</a>
           </Button>
@@ -68,7 +70,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
             asChild 
             size="lg" 
             variant="ghost" 
-            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 @max-3xl:order-2"
+            className="bg-black/30 backdrop-blur-md text-white border border-white/20 hover:bg-black/50 px-10 h-16 text-xl font-bold rounded-2xl shadow-xl transition-all active:scale-95 order-2 @3xl:order-none"
           >
             <a href="#about">Lihat Profile</a>
           </Button>
@@ -84,7 +86,7 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
         )}
       </div>
 
-      {/* Floating Logo hint */}
+      {/* Floating Logo */}
       <div className="absolute bottom-10 left-10 z-20 flex flex-col gap-2">
         <div className="w-14 h-14 rounded-full bg-black/80 border border-white/20 flex items-center justify-center text-white font-bold text-2xl shadow-2xl backdrop-blur-sm">
           N

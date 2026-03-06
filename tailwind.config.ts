@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -8,6 +9,7 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    // Breakpoints sesuai aturan spesifik yang ditetapkan user
     screens: {
       sm: '40rem',   // 640px
       md: '48rem',   // 768px
