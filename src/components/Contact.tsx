@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Phone, Mail, MapPin } from "lucide-react";
@@ -15,11 +16,11 @@ export function Contact({ data }: ContactProps) {
   if (!data) return null;
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-white overflow-hidden">
+    <section id="contact" className="@container py-24 px-6 md:px-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center animate-in fade-in slide-in-from-bottom-5 duration-700">Contact Me</h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 @4xl:grid-cols-2 gap-12">
           <div className="space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000">
             <h3 className="text-2xl font-bold text-primary mb-4">Informasi Kontak</h3>
             
