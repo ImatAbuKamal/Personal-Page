@@ -52,16 +52,13 @@ export function Footer({ data, ownerName }: FooterProps) {
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
         <div className="flex gap-6">
           {socialLinks.map((link, i) => (
-            // Hanya tampilkan jika link bukan "#" atau tampilkan sebagai placeholder jika diinginkan
-            // Di sini kita tampilkan semua icon, namun dengan opacity rendah jika hanya "#"
             <a
               key={i}
-              href={link.href === "#" ? undefined : link.href}
+              href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-all hover:scale-110 ${
-                link.href === "#" ? "opacity-40 cursor-default" : "hover:bg-white hover:text-primary"
-              }`}
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-white hover:text-primary hover:border-white shadow-sm"
+              aria-label={`Link sosial media ${i + 1}`}
             >
               {link.icon}
             </a>
