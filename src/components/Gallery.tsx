@@ -16,29 +16,8 @@ interface GalleryProps {
 }
 
 export function Gallery({ items }: GalleryProps) {
-  // Fallback data based on user request
-  const defaultItems: GalleryItem[] = [
-    {
-      title: "E-commerce Platform",
-      imageUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600",
-      learned: ["React", "Node.js", "MongoDB"],
-      results: ["Peningkatan penjualan 30%", "1000+ pengguna"]
-    },
-    {
-      title: "Dashboard Analytics",
-      imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600",
-      learned: ["Vue.js", "D3.js", "Firebase"],
-      results: ["Real-time monitoring", "20+ metrik"]
-    },
-    {
-      title: "Mobile App",
-      imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600",
-      learned: ["React Native", "Redux", "Firebase"],
-      results: ["100k+ download", "Rating 4.8"]
-    }
-  ];
-
-  const finalItems = items && items.length > 0 ? items : defaultItems;
+  // Jika tidak ada item di galeri, sembunyikan section ini
+  if (!items || items.length === 0) return null;
 
   return (
     <section id="gallery" className="@container py-24 px-4 md:px-12 bg-background">
@@ -46,7 +25,7 @@ export function Gallery({ items }: GalleryProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center animate-in fade-in slide-in-from-bottom-5 duration-700">My Projects</h2>
         
         <div className="grid grid-cols-1 @3xl:grid-cols-2 @5xl:grid-cols-3 @7xl:grid-cols-4 gap-6 md:gap-8">
-          {finalItems.map((item, index) => (
+          {items.map((item, index) => (
             <Card 
               key={index} 
               className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300 rounded-xl flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both"
@@ -68,25 +47,29 @@ export function Gallery({ items }: GalleryProps) {
                   </h4>
                   
                   <div className="space-y-4">
-                    <div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Teknologi</span>
-                      <div className="flex flex-wrap gap-2">
-                        {item.learned?.map((tech, i) => (
-                          <Badge key={i} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none rounded-md text-xs px-2 py-0">
-                            {tech}
-                          </Badge>
-                        ))}
+                    {item.learned && item.learned.length > 0 && (
+                      <div>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Teknologi</span>
+                        <div className="flex flex-wrap gap-2">
+                          {item.learned.map((tech, i) => (
+                            <Badge key={i} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none rounded-md text-xs px-2 py-0">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
 
-                    <div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Hasil Utama</span>
-                      <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
-                        {item.results?.map((res, i) => (
-                          <li key={i} className="line-clamp-1">{res}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    {item.results && item.results.length > 0 && (
+                      <div>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">Hasil Utama</span>
+                        <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
+                          {item.results.map((res, i) => (
+                            <li key={i} className="line-clamp-1">{res}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               </CardContent>
