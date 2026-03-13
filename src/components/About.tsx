@@ -2,6 +2,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Image from "next/image";
 
 interface AboutProps {
   data?: {
@@ -28,11 +29,13 @@ export function About({ data }: AboutProps) {
         
         <div className="grid grid-cols-1 @3xl:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square max-w-md mx-auto @3xl:mx-0 overflow-hidden rounded-2xl shadow-xl group">
-            <img 
+            <Image 
               src={data.imageUrl} 
               alt="Profile" 
-              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
               data-ai-hint="professional profile"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 

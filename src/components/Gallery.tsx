@@ -3,6 +3,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface GalleryItem {
   title: string;
@@ -32,11 +33,13 @@ export function Gallery({ items }: GalleryProps) {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="relative aspect-video overflow-hidden">
-                <img 
+                <Image 
                   src={item.imageUrl} 
                   alt={item.title} 
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   data-ai-hint="project design"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>

@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface HeroProps {
   title?: string;
@@ -31,11 +33,18 @@ export function Hero({ title, subtitle, slides = [] }: HeroProps) {
             <div
               key={index}
               className={cn(
-                "absolute inset-0 bg-cover bg-center transition-opacity duration-1000",
+                "absolute inset-0 transition-opacity duration-1000",
                 index === currentSlide ? "opacity-100" : "opacity-0"
               )}
-              style={{ backgroundImage: `url('${slide.imageUrl}')` }}
             >
+              <Image
+                src={slide.imageUrl}
+                alt={slide.caption || "Hero Background"}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                quality={85}
+              />
               <div className="absolute inset-0 bg-black/60" />
             </div>
           ))
