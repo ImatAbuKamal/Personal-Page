@@ -25,11 +25,11 @@ export default function Home() {
         const result = await fetchPortfolioData();
         setData(result);
         
-        // Update browser title and favicon dynamically
+        // Update browser title and favicon dynamically from "About" data
         if (result.about?.title) {
           document.title = result.about.title;
           
-          // Update favicon
+          // Update favicon to use profile image
           if (result.about.imageUrl) {
             let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
             if (!link) {
@@ -38,6 +38,14 @@ export default function Home() {
               document.getElementsByTagName('head')[0].appendChild(link);
             }
             link.href = result.about.imageUrl;
+            // Also update apple-touch-icon for mobile devices
+            let appleLink = document.querySelector("link[rel~='apple-touch-icon']") as HTMLLinkElement;
+            if (!appleLink) {
+              appleLink = document.createElement('link');
+              appleLink.rel = 'apple-touch-icon';
+              document.getElementsByTagName('head')[0].appendChild(appleLink);
+            }
+            appleLink.href = result.about.imageUrl;
           }
         }
       } catch (error) {

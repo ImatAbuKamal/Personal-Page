@@ -27,8 +27,9 @@ export function About({ data }: AboutProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">About Me</h2>
         
         <div className="grid grid-cols-1 @3xl:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square max-w-md mx-auto @3xl:mx-0">
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-8 border-background group transition-all duration-500 hover:scale-105 hover:shadow-primary/20">
+          <div className="relative aspect-square w-full max-w-[320px] @3xl:max-w-md mx-auto @3xl:mx-0">
+            {/* Main Circular Image Container */}
+            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-8 border-background group transition-all duration-500 hover:scale-105 hover:shadow-primary/20 z-10">
               <Image 
                 src={data.imageUrl} 
                 alt={data.title} 
@@ -39,9 +40,11 @@ export function About({ data }: AboutProps) {
                 priority
               />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/10 rounded-full -z-10 animate-pulse" />
-            <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/10 rounded-full -z-10" />
+            
+            {/* Decorative elements - Only visible when image is loaded */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/10 rounded-full z-0 animate-pulse" />
+            <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/10 rounded-full z-0" />
+            <div className="absolute top-1/2 -right-8 w-6 h-6 bg-secondary/20 rounded-full z-0 animate-bounce" />
           </div>
 
           <div className="space-y-6">
