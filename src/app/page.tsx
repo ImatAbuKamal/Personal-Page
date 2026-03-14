@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -23,8 +24,21 @@ export default function Home() {
       try {
         const result = await fetchPortfolioData();
         setData(result);
+        
+        // Update browser title and favicon dynamically
         if (result.about?.title) {
-          document.title = `${result.about.title} - Portfolio`;
+          document.title = result.about.title;
+          
+          // Update favicon
+          if (result.about.imageUrl) {
+            let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+            if (!link) {
+              link = document.createElement('link');
+              link.rel = 'icon';
+              document.getElementsByTagName('head')[0].appendChild(link);
+            }
+            link.href = result.about.imageUrl;
+          }
         }
       } catch (error) {
         console.error("Error loading portfolio data:", error);
@@ -50,6 +64,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Header 
         logoTitle={data?.about?.title} 
+        logoUrl={data?.about?.imageUrl}
         onOpenMessage={() => setIsMessageModalOpen(true)} 
       />
       

@@ -5,13 +5,15 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface HeaderProps {
   logoTitle?: string;
+  logoUrl?: string;
   onOpenMessage: () => void;
 }
 
-export function Header({ logoTitle, onOpenMessage }: HeaderProps) {
+export function Header({ logoTitle, logoUrl, onOpenMessage }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -39,10 +41,22 @@ export function Header({ logoTitle, onOpenMessage }: HeaderProps) {
         )}
       >
         <div className="max-w-7xl mx-auto w-full flex justify-between items-center">
-          <div 
-            className="text-2xl font-bold text-primary flex items-center" 
-            dangerouslySetInnerHTML={{ __html: logoTitle || 'My<span>Portfolio</span>' }}
-          />
+          <a href="#home" className="flex items-center gap-3 group">
+            {logoUrl && (
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform">
+                <Image 
+                  src={logoUrl} 
+                  alt="Logo" 
+                  fill 
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div 
+              className="text-xl font-bold text-primary hidden @xs:block" 
+              dangerouslySetInnerHTML={{ __html: logoTitle || 'My<span>Portfolio</span>' }}
+            />
+          </a>
 
           <nav className="hidden md:block">
             <ul className="flex gap-8 items-center">
@@ -60,7 +74,7 @@ export function Header({ logoTitle, onOpenMessage }: HeaderProps) {
                 <Button 
                   variant="outline" 
                   onClick={onOpenMessage}
-                  className="border-primary text-primary hover:bg-primary hover:text-white"
+                  className="border-primary text-primary hover:bg-primary hover:text-white rounded-full px-6"
                 >
                   Message
                 </Button>
@@ -78,7 +92,7 @@ export function Header({ logoTitle, onOpenMessage }: HeaderProps) {
         </div>
       </header>
 
-      {/* Mobile Sidebar Overlay (optional, for closing on click outside) */}
+      {/* Mobile Sidebar */}
       {isMenuOpen && (
         <div 
           className="fixed inset-0 bg-black/20 z-30 md:hidden" 
@@ -86,7 +100,6 @@ export function Header({ logoTitle, onOpenMessage }: HeaderProps) {
         />
       )}
 
-      {/* Mobile Sidebar */}
       <div
         className={cn(
           "fixed right-0 bottom-0 bg-background z-40 transition-transform duration-300 md:hidden w-[66.6%] border-l border-border shadow-2xl",
